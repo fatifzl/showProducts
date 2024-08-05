@@ -1,0 +1,70 @@
+:root{
+    --body-background:#00408f;
+    --text-color:white;
+    --div-text-color:gray;
+    --primary-color:#cbdeff;
+    --btn-color:#318eff; 
+}
+html{
+    font-size: 16px;
+}
+body{
+    margin: 0;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+    background-color: var(--body-background);
+    width: 100%;
+    height: 100vh;
+}
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        color: var(--text-color);
+        font-size: 2.75rem;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+#container{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.25rem;
+    div{
+        height: 25rem;
+        background-color:var(--primary-color);
+        border:none;
+        border-radius: 1rem;
+        color:var(--div-text-color);
+        font-size:1rem;
+        padding: 1.75rem;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+#footer{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    button{
+        border:none;
+        border-radius:1rem;
+        width: 40%;
+        height: 3.125rem;
+        background-color:var(--btn-color);
+        color:var(--text-color);
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        cursor: pointer;
+    }
+    button:hover{
+        width: 50%;
+    }
+}
+#item1{
+    img{
+    width: 100px;
+    height: 100px;
+    }
+}
