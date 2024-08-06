@@ -40,30 +40,42 @@ var products=[
         Price:1440,
         hasDiscount:false}
 ];
-function createImg(){
-    var imgTag = document.createElement("img");
-    return imgTag;
+function createTag(tagName){
+    return document.createElement(tagName);  
 }
-function createPTag() {
-    var pTag = document.createElement("p");
-    return pTag;
+function createProducts(product){
+        var divTag = createTag("div");
+        divTag.classList.add("items");
+        var listOfObjectKeys = Object.keys(product);
+        listOfObjectKeys.forEach(function(element){
+                if(element=='imgSrc'){
+                    var img = createTag("img");
+                    img.setAttribute('src',product[element]);
+                    img.setAttribute('alt','productImage');
+                    divTag.appendChild(img);
+                }
+                else if (element=='hasDiscount'){
+                    var pTag = createTag("p");
+                    if (product[element]){
+                        pTag.innerText= "hasDiscount" + " : " + "Yes";   
+                    }
+                    else{
+                        pTag.innerText= "hasDiscount" + " : " + "No";
+                    }
+                    divTag.appendChild(pTag);
+                }
+                else{
+                    var tag = createTag("p");
+                    tag.innerText=element + " : " + product[element];
+                    divTag.appendChild(tag);
+                }
+        })
+    return divTag;
 }
 function showProducts() {
-    var index = 0 ;
-    var product = products[index];
-    var productObjectKeys = Object.keys(product);
-    productObjectKeys.forEach(function(element){
-        var Product = product[element];
-        if(element=="Name"){
-        var tag = createPTag();
-        tag.innerText = element + ' : ' + product[element];
-        document.getElementById("item1").appendChild(tag); }
-        else if (element=="imgSrc") {
-            var img = createImg();
-            img.setAttribute("src",Product);
-            img.setAttribute("alt","productImg");
-            document.getElementById("item1").appendChild(img);
-        }  
-    });    
+    products.forEach(function(product){
+        var productsCard =createProducts(product);
+        document.getElementById("container").appendChild(productsCard);
+    })
 }
 

@@ -60,11 +60,12 @@ body{
     }
     button:hover{
         width: 50%;
+        transition: width 800ms linear 200ms;
     }
 }
-#item1{
+.items{
     img{
-    width: 100px;
-    height: 100px;
+    width: 9.375rem;
+    height: 6.25rem;
     }
 }
